@@ -5,9 +5,21 @@ namespace CookieClicker.Runtime.Model
 	public class Jar
 	{
 		public int AutoclickerPrice { get; }
-		public int Amount { get; private set; }
+		public int Amount
+		{
+			get => amount;
+			private set
+			{
+				int oldAmount = amount;
+				amount = value;
+				if (amount > oldAmount) DomainEvents.GotACookie();
+			}
+		}
+
 		float timePassed;
 		public bool isAutoclickerPurchased;
+
+		int amount;
 
 		public Jar()
 		{
