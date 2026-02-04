@@ -5,12 +5,10 @@ namespace CookieClicker.Runtime.Presenter
 	public class PurchaseAutoclicker
 	{
 		readonly Jar jar;
-		readonly IGameView view;
 
-		public PurchaseAutoclicker(Jar jar, IGameView view)
+		public PurchaseAutoclicker(Jar jar)
 		{
 			this.jar = jar;
-			this.view = view;
 		}
 
 		public void Execute()

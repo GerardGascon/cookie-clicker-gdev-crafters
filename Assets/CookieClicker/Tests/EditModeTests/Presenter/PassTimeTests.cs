@@ -12,8 +12,7 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		public void PassTime()
 		{
 			var doc = new Jar().WithAutoclicker();
-			var doc2 = new MockCookieCounterView(doc);
-			var sut = new PassTime(doc, doc2);
+			var sut = new PassTime(doc);
 
 			sut.Execute(1.2f);
 
@@ -25,7 +24,7 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		{
 			var doc = new Jar().WithAutoclicker();
 			var doc2 = new MockCookieCounterView(doc);
-			var sut = new PassTime(doc, doc2);
+			var sut = new PassTime(doc);
 
 			sut.Execute(1.2f);
 
@@ -37,7 +36,7 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		{
 			var doc = new Jar().WithAutoclicker();
 			var doc2 = new MockCookieCounterView(doc);
-			var sut = new PassTime(doc, doc2);
+			var sut = new PassTime(doc);
 
 			sut.Execute(1.2f);
 			sut.Execute(1.2f);

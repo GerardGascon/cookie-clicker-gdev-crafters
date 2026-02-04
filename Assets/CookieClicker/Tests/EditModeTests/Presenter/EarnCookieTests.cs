@@ -12,8 +12,7 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		public void EarnCookieAddsOneCookieToJar()
 		{
 			var doc = new Jar();
-			var doc2 = new MockCookieCounterView(doc);
-			var sut = new EarnCookie(doc, doc2);
+			var sut = new EarnCookie(doc);
 
 			sut.Execute();
 
@@ -25,7 +24,7 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		{
 			var doc = new Jar();
 			var doc2 = new MockCookieCounterView(doc);
-			var sut = new EarnCookie(doc, doc2);
+			var sut = new EarnCookie(doc);
 
 			sut.Execute();
 
@@ -37,7 +36,7 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		{
 			var doc = new Jar();
 			var doc2 = new MockCookieCounterView(doc);
-			var sut = new EarnCookie(doc, doc2);
+			var sut = new EarnCookie(doc);
 
 			sut.Execute();
 			sut.Execute();
