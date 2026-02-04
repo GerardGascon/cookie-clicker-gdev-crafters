@@ -12,6 +12,7 @@ namespace CookieClicker.Runtime.View
 		{
 			this.jar = jar;
 			Refresh();
+			DomainEvents.GotACookie += Refresh;
 		}
 
 		public void Refresh()
