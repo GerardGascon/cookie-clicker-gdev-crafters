@@ -1,10 +1,9 @@
 ﻿using CookieClicker.Runtime.Model;
-using CookieClicker.Runtime.Presenter;
 using UnityEngine;
 
 namespace CookieClicker.Runtime.View
 {
-	public class GameView : MonoBehaviour, IGameView
+	public class GameView : MonoBehaviour
 	{
 		Jar jar;
 

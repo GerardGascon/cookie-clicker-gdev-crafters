@@ -1,9 +1,8 @@
 using CookieClicker.Runtime.Model;
-using CookieClicker.Runtime.Presenter;
 
 namespace CookieClicker.Tests.EditModeTests.TestDoubles
 {
-	public class MockCookieCounterView : IGameView
+	public class MockCookieCounterView
 	{
 		readonly Jar jar;
 
