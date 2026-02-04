@@ -5,14 +5,14 @@ namespace CookieClicker.Runtime.Model
 	public class DomainEvents
 	{
 		static Action<GotACookieEvent> GotACookie;
-		static Action UngotACookie;
+		static Action<UnGotACookieEvent> UngotACookie;
 
 		public static void SubscribeToGotACookie(Action<GotACookieEvent> onGotACookie)
 		{
 			GotACookie += onGotACookie;
 		}
 
-		public static void SubscribeToUngotACookie(Action onUngotACookie)
+		public static void SubscribeToUngotACookie(Action<UnGotACookieEvent> onUngotACookie)
 		{
 			UngotACookie += onUngotACookie;
 		}
@@ -22,10 +22,14 @@ namespace CookieClicker.Runtime.Model
 			GotACookie?.Invoke(ev);
 		}
 
-		public static void RaiseUngotACookie()
+		public static void RaiseUngotACookie(UnGotACookieEvent ev)
 		{
-			UngotACookie?.Invoke();
+			UngotACookie?.Invoke(ev);
 		}
+	}
+
+	public struct UnGotACookieEvent
+	{
 	}
 
 	public struct GotACookieEvent
