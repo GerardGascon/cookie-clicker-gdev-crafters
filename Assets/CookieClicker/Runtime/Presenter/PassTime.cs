@@ -15,13 +15,7 @@ namespace CookieClicker.Runtime.Presenter
 
 		public void Execute(float time)
 		{
-			var amountBeforeTimePassing = jar.Amount;
 			jar.SecondsHavePassed(time);
-
-			if (jar.Amount != amountBeforeTimePassing)
-			{
-				view.Refresh();
-			}
 		}
 	}
 }
