@@ -9,7 +9,7 @@ namespace CookieClicker.Tests.EditModeTests.TestDoubles
 		public MockCookieCounterView(Jar jar)
 		{
 			this.jar = jar;
-			DomainEvents.GotACookie += Refresh;
+			DomainEvents.SubscribeToGotACookie(Refresh);
 			DomainEvents.UngotACookie += Refresh;
 		}
 
