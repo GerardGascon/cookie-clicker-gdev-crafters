@@ -10,7 +10,7 @@ namespace CookieClicker.Tests.EditModeTests.TestDoubles
 		{
 			this.jar = jar;
 			DomainEvents.SubscribeToGotACookie(Refresh);
-			DomainEvents.UngotACookie += Refresh;
+			DomainEvents.SubscribeToUngotACookie(Refresh);
 		}
 
 		public int Counter { get; private set; }

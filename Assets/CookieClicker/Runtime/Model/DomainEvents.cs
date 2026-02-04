@@ -5,7 +5,7 @@ namespace CookieClicker.Runtime.Model
 	public class DomainEvents
 	{
 		static Action GotACookie;
-		public static Action UngotACookie;
+		static Action UngotACookie;
 
 		public static void SubscribeToGotACookie(Action onGotACookie)
 		{
@@ -20,6 +20,11 @@ namespace CookieClicker.Runtime.Model
 		public static void RaiseGotACookie()
 		{
 			GotACookie?.Invoke();
+		}
+
+		public static void RaiseUngotACookie()
+		{
+			UngotACookie?.Invoke();
 		}
 	}
 }
