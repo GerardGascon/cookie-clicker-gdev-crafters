@@ -15,9 +15,13 @@ namespace CookieClicker.Tests.EditModeTests.TestDoubles
 
 		public int Counter { get; private set; }
 
-		public void Refresh()
-		{
+		void Refresh() {
 			Counter = jar.Amount;
+		}
+
+		void Refresh(GotACookieEvent gotACookieEvent)
+		{
+			Refresh();
 		}
 	}
 }

@@ -15,10 +15,14 @@ namespace CookieClicker.Runtime.View
 			DomainEvents.SubscribeToUngotACookie(Refresh);
 		}
 
-		public void Refresh()
+		void Refresh()
 		{
 			FindFirstObjectByType<CookieCounter>().Refresh(jar.Amount);
 			FindFirstObjectByType<PurchaseAutoclickerButton>().Refresh(jar.Amount, jar.AutoclickerPrice);
+		}
+
+		void Refresh(GotACookieEvent obj) {
+			Refresh();
 		}
 	}
 }
