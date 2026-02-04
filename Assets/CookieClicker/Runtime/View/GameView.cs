@@ -11,7 +11,7 @@ namespace CookieClicker.Runtime.View
 		{
 			this.jar = jar;
 			Refresh();
-			DomainEvents.SubscribeToGotACookie(Refresh);
+			DomainEvents.SubscribeToGotACookie(_ => Refresh());
 			DomainEvents.SubscribeToUngotACookie(Refresh);
 		}
 
@@ -19,10 +19,6 @@ namespace CookieClicker.Runtime.View
 		{
 			FindFirstObjectByType<CookieCounter>().Refresh(jar.Amount);
 			FindFirstObjectByType<PurchaseAutoclickerButton>().Refresh(jar.Amount, jar.AutoclickerPrice);
-		}
-
-		void Refresh(GotACookieEvent obj) {
-			Refresh();
 		}
 	}
 }
