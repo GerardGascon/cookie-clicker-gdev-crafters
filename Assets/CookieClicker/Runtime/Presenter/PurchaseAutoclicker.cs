@@ -18,7 +18,6 @@ namespace CookieClicker.Runtime.Presenter
 			if (jar.Amount >= jar.AutoclickerPrice)
 			{
 				jar.PurchaseAutoclicker();
-				view.Refresh();
 			}
 		}
 	}

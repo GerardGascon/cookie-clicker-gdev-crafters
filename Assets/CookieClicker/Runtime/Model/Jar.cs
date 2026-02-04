@@ -13,6 +13,7 @@ namespace CookieClicker.Runtime.Model
 				int oldAmount = amount;
 				amount = value;
 				if (amount > oldAmount) DomainEvents.GotACookie?.Invoke();
+				if (amount < oldAmount) DomainEvents.UngotACookie?.Invoke();
 			}
 		}
 
