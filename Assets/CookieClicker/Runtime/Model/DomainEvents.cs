@@ -11,5 +11,10 @@ namespace CookieClicker.Runtime.Model
 		{
 			GotACookie += onGotACookie;
 		}
+
+		public static void SuscribeToUngotACookie(Action onUngotACookie)
+		{
+			UngotACookie += onUngotACookie;
+		}
 	}
 }
