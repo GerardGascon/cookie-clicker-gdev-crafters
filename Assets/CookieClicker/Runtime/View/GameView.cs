@@ -10,15 +10,15 @@ namespace CookieClicker.Runtime.View
 		public void Initialize(Jar jar)
 		{
 			this.jar = jar;
-			Refresh();
-			DomainEvents.SubscribeToDomainEvents<GotACookieEvent>(_ => Refresh());
-			DomainEvents.SubscribeToDomainEvents<UnGotACookieEvent>(_ => Refresh());
+			Refresh(jar.Amount);
+			DomainEvents.SubscribeToDomainEvents<GotACookieEvent>(ev => Refresh(ev.JarAmount));
+			DomainEvents.SubscribeToDomainEvents<UnGotACookieEvent>(_ => Refresh(jar.Amount));
 		}
 
-		void Refresh()
+		void Refresh(int jarAmount)
 		{
-			FindFirstObjectByType<CookieCounter>().Refresh(jar.Amount);
-			FindFirstObjectByType<PurchaseAutoclickerButton>().Refresh(jar.Amount, jar.AutoclickerPrice);
+			FindFirstObjectByType<CookieCounter>().Refresh(jarAmount);
+			FindFirstObjectByType<PurchaseAutoclickerButton>().Refresh(jarAmount, jar.AutoclickerPrice);
 		}
 	}
 }

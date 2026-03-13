@@ -37,6 +37,11 @@ namespace CookieClicker.Runtime.Model
 
 	public struct GotACookieEvent : DomainEvent
 	{
+		public int JarAmount;
 
+		public GotACookieEvent(int jarAmount)
+		{
+			this.JarAmount = jarAmount;
+		}
 	}
 }
