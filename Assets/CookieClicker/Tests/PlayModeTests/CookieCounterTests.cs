@@ -13,12 +13,6 @@ namespace CookieClicker.Tests.PlayModeTests
 {
 	public class CookieCounterTests
 	{
-		[SetUp]
-		public void SetUp()
-		{
-			DomainEvents.Reset();
-		}
-
 		[UnityTest]
 		public IEnumerator ClickingOnceEarnsOneCookie()
 		{

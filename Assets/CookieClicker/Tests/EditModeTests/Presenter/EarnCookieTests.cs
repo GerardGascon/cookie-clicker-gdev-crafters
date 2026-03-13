@@ -8,16 +8,10 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 	[TestFixture]
 	public class EarnCookieTests
 	{
-		[SetUp]
-		public void SetUp()
-		{
-			DomainEvents.Reset();
-		}
-
 		[Test]
-		public void EarnCookieAddsOneCookieToJar()
-		{
-			var doc = new Jar();
+		public void EarnCookieAddsOneCookieToJar() {
+			var doc1 = new DomainEvents();
+			var doc = new Jar(doc1);
 			var sut = new EarnCookie(doc);
 
 			sut.Execute();
@@ -28,8 +22,9 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		[Test]
 		public void ViewDisplays1Cookie()
 		{
-			var doc = new Jar();
-			var doc2 = new MockCookieCounterView();
+			var doc1 = new DomainEvents();
+			var doc = new Jar(doc1);
+			var doc2 = new MockCookieCounterView(doc1);
 			var sut = new EarnCookie(doc);
 
 			sut.Execute();
@@ -40,8 +35,9 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		[Test]
 		public void ViewDisplays2Cookies()
 		{
-			var doc = new Jar();
-			var doc2 = new MockCookieCounterView();
+			var doc1 = new DomainEvents();
+			var doc = new Jar(doc1);
+			var doc2 = new MockCookieCounterView(doc1);
 			var sut = new EarnCookie(doc);
 
 			sut.Execute();

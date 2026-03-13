@@ -4,6 +4,8 @@ namespace CookieClicker.Runtime.Model
 {
 	public class Jar
 	{
+		readonly DomainEvents domainEvents;
+
 		public int AutoclickerPrice { get; }
 		public int Amount
 		{
@@ -12,8 +14,8 @@ namespace CookieClicker.Runtime.Model
 			{
 				int oldAmount = amount;
 				amount = value;
-				if (amount > oldAmount) DomainEvents.RaiseDomainEvent(new GotACookieEvent(amount));
-				if (amount < oldAmount) DomainEvents.RaiseDomainEvent(new UnGotACookieEvent(amount));
+				if (amount > oldAmount) domainEvents.RaiseDomainEvent(new GotACookieEvent(amount));
+				if (amount < oldAmount) domainEvents.RaiseDomainEvent(new UnGotACookieEvent(amount));
 			}
 		}
 
@@ -22,12 +24,13 @@ namespace CookieClicker.Runtime.Model
 
 		int amount;
 
-		public Jar()
-		{
+		public Jar(DomainEvents domainEvents) {
+			this.domainEvents = domainEvents;
 		}
 
-		public Jar(int autoclickerPrice)
+		public Jar(DomainEvents domainEvents, int autoclickerPrice)
 		{
+			this.domainEvents = domainEvents;
 			AutoclickerPrice = autoclickerPrice;
 		}
 

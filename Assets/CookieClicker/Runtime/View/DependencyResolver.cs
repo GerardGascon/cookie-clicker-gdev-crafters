@@ -8,12 +8,14 @@ namespace CookieClicker.Runtime.View
 	{
 		void Awake()
 		{
+			var domainEvents = new DomainEvents();
+
 			var gameView = FindAnyObjectByType<GameView>();
 			var clock = FindAnyObjectByType<UnityClock>();
 			var earnCookieButton = FindAnyObjectByType<EarnCookieButton>();
 			var purchaseAutoclickerButton = FindAnyObjectByType<PurchaseAutoclickerButton>();
 
-			var jar = new Jar(3);
+			var jar = new Jar(domainEvents, 3);
 			var purchaseAutoclicker = new PurchaseAutoclicker(jar);
 			var earnCookie = new EarnCookie(jar);
 			var passTime = new PassTime(jar);
@@ -21,7 +23,7 @@ namespace CookieClicker.Runtime.View
 			clock.Initialize(passTime);
 			earnCookieButton.Initialize(earnCookie);
 			purchaseAutoclickerButton.Initialize(purchaseAutoclicker);
-			gameView.Initialize(jar);
+			gameView.Initialize(jar, domainEvents);
 		}
 	}
 }

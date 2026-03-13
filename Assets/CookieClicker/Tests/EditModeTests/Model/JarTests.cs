@@ -6,16 +6,11 @@ namespace CookieClicker.Tests.EditModeTests.Model
 	[TestFixture]
 	public class JarTests
 	{
-		[SetUp]
-		public void SetUp()
-		{
-			DomainEvents.Reset();
-		}
-
 		[Test]
 		public void JarIsEmptyByDefault()
 		{
-			var jar = new Jar();
+			var doc = new DomainEvents();
+			var jar = new Jar(doc);
 
 			Assert.That(jar.IsEmpty(), Is.True);
 		}
@@ -23,7 +18,8 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[Test]
 		public void EarnOneCookieJarIsNotEmpty()
 		{
-			var jar = new Jar();
+			var doc = new DomainEvents();
+			var jar = new Jar(doc);
 
 			jar.Add();
 
@@ -33,7 +29,8 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[Test]
 		public void EarnOneCookie()
 		{
-			var jar = new Jar();
+			var doc = new DomainEvents();
+			var jar = new Jar(doc);
 
 			jar.Add();
 
@@ -43,7 +40,8 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[Test]
 		public void EarnTwoCookies()
 		{
-			var jar = new Jar();
+			var doc =  new DomainEvents();
+			var jar = new Jar(doc);
 
 			jar.Add();
 			jar.Add();
@@ -54,7 +52,8 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[Test]
 		public void CookieIsAddedWhenOneSecondHasPassed()
 		{
-			var jar = new Jar();
+			var doc = new DomainEvents();
+			var jar = new Jar(doc);
 
 			jar.OneSecondHasPassed();
 
@@ -66,7 +65,8 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[TestCase(3.2f, 3)]
 		public void ThreeCookiesAreAddedWhenThreeSecondsHavePassed(float timePassed, int amountOfCookies)
 		{
-			var jar = new Jar().WithAutoclicker();
+			var doc = new DomainEvents();
+			var jar = new Jar(doc).WithAutoclicker();
 
 			jar.SecondsHavePassed(timePassed);
 
@@ -77,7 +77,8 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[TestCase(1.6f, 3)]
 		public void CookiesAreAddedWhenTimePassesIn2Increments(float timeIncrement, int amountOfCookies)
 		{
-			var jar = new Jar().WithAutoclicker();
+			var doc = new DomainEvents();
+			var jar = new Jar(doc).WithAutoclicker();
 
 			jar.SecondsHavePassed(timeIncrement);
 			jar.SecondsHavePassed(timeIncrement);
@@ -88,7 +89,8 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[Test]
 		public void GivenJarWithCookies_WhenTimePasses_CookiesAreAdded()
 		{
-			var jar = new Jar().WithCookies(5).WithAutoclicker();
+			var doc = new DomainEvents();
+			var jar = new Jar(doc).WithCookies(5).WithAutoclicker();
 
 			jar.SecondsHavePassed(1.2f);
 			jar.SecondsHavePassed(1.2f);

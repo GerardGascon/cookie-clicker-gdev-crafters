@@ -11,12 +11,6 @@ namespace CookieClicker.Tests.PlayModeTests
 {
 	public class PurchaseButtonTests
 	{
-		[SetUp]
-		public void SetUp()
-		{
-			DomainEvents.Reset();
-		}
-
 		[UnityTest]
 		public IEnumerator PurchaseAutoclickerButtonIsNotInteractableByDefault()
 		{
