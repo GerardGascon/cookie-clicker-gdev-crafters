@@ -12,8 +12,8 @@ namespace CookieClicker.Runtime.Model
 			{
 				int oldAmount = amount;
 				amount = value;
-				if (amount > oldAmount) DomainEvents.RaiseGotACookie(new GotACookieEvent());
-				if (amount < oldAmount) DomainEvents.RaiseUngotACookie(new UnGotACookieEvent());
+				if (amount > oldAmount) DomainEvents.RaiseDomainEvent(new GotACookieEvent());
+				if (amount < oldAmount) DomainEvents.RaiseDomainEvent(new UnGotACookieEvent());
 			}
 		}
 

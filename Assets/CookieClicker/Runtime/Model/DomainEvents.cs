@@ -13,17 +13,9 @@ namespace CookieClicker.Runtime.Model
 			list.Add(ev => onDomainEvent((T)ev));
 		}
 
-		public static void RaiseGotACookie(GotACookieEvent ev)
+		public static void RaiseDomainEvent<T>(T ev) where T : DomainEvent
 		{
-			if (!domainEvents.TryGetValue(typeof(GotACookieEvent), out List<Action<DomainEvent>> events))
-				return;
-			foreach (Action<DomainEvent> domainEv in events)
-				domainEv(ev);
-		}
-
-		public static void RaiseUngotACookie(UnGotACookieEvent ev)
-		{
-			if (!domainEvents.TryGetValue(typeof(UnGotACookieEvent), out List<Action<DomainEvent>> events))
+			if (!domainEvents.TryGetValue(typeof(T), out List<Action<DomainEvent>> events))
 				return;
 			foreach (Action<DomainEvent> domainEv in events)
 				domainEv(ev);
