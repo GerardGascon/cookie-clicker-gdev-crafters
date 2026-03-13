@@ -33,6 +33,12 @@ namespace CookieClicker.Runtime.Model
 		{
 			foreach (var action in UngotACookie) action(ev);
 		}
+
+		public static void Reset()
+		{
+			domainEvents.Clear();
+			UngotACookie.Clear();
+		}
 	}
 
 	public interface DomainEvent {

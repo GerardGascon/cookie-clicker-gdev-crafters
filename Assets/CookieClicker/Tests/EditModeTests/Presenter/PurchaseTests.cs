@@ -8,6 +8,12 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 	[TestFixture]
 	public class PurchaseTests
 	{
+		[SetUp]
+		public void SetUp()
+		{
+			DomainEvents.Reset();
+		}
+
 		[Test]
 		public void PurchaseAutoclicker()
 		{

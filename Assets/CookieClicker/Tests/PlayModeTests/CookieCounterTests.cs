@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using CookieClicker.Runtime.Model;
 using CookieClicker.Runtime.View;
 using NUnit.Framework;
 using TMPro;
@@ -12,6 +13,12 @@ namespace CookieClicker.Tests.PlayModeTests
 {
 	public class CookieCounterTests
 	{
+		[SetUp]
+		public void SetUp()
+		{
+			DomainEvents.Reset();
+		}
+
 		[UnityTest]
 		public IEnumerator ClickingOnceEarnsOneCookie()
 		{

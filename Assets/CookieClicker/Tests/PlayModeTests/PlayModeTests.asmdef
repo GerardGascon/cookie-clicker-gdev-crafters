@@ -5,7 +5,8 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "View",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "Model"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

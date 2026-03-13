@@ -8,6 +8,12 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 	[TestFixture]
 	public class PassTimeTests
 	{
+		[SetUp]
+		public void SetUp()
+		{
+			DomainEvents.Reset();
+		}
+
 		[Test]
 		public void PassTime()
 		{

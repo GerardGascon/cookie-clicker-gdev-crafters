@@ -6,6 +6,12 @@ namespace CookieClicker.Tests.EditModeTests.Model
 	[TestFixture]
 	public class PurchaseTests
 	{
+		[SetUp]
+		public void SetUp()
+		{
+			DomainEvents.Reset();
+		}
+
 		[Test]
 		public void PurchaseAutoclickerDecreasesCookiesAmountByPrice()
 		{

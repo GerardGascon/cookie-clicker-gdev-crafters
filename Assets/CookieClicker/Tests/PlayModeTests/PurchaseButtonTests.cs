@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using CookieClicker.Runtime.Model;
 using CookieClicker.Runtime.View;
 using NUnit.Framework;
 using UnityEngine;
@@ -10,6 +11,12 @@ namespace CookieClicker.Tests.PlayModeTests
 {
 	public class PurchaseButtonTests
 	{
+		[SetUp]
+		public void SetUp()
+		{
+			DomainEvents.Reset();
+		}
+
 		[UnityTest]
 		public IEnumerator PurchaseAutoclickerButtonIsNotInteractableByDefault()
 		{
