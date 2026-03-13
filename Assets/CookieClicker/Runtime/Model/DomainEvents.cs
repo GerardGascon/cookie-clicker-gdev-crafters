@@ -5,8 +5,6 @@ namespace CookieClicker.Runtime.Model
 {
 	public class DomainEvents
 	{
-		static List<Action<UnGotACookieEvent>> UngotACookie = new List<Action<UnGotACookieEvent>>();
-
 		static Dictionary<Type, List<Action<DomainEvent>>> domainEvents = new();
 
 		public static void SubscribeToGotACookie(Action<GotACookieEvent> onGotACookie)
@@ -18,7 +16,9 @@ namespace CookieClicker.Runtime.Model
 
 		public static void SubscribeToUngotACookie(Action<UnGotACookieEvent> onUngotACookie)
 		{
-			UngotACookie.Add(onUngotACookie);
+			if (!domainEvents.TryGetValue(typeof(UnGotACookieEvent), out List<Action<DomainEvent>> list))
+				domainEvents[typeof(UnGotACookieEvent)] = list = new List<Action<DomainEvent>>();
+			list.Add(ev => onUngotACookie((UnGotACookieEvent)ev));
 		}
 
 		public static void RaiseGotACookie(GotACookieEvent ev)
@@ -31,13 +31,15 @@ namespace CookieClicker.Runtime.Model
 
 		public static void RaiseUngotACookie(UnGotACookieEvent ev)
 		{
-			foreach (var action in UngotACookie) action(ev);
+			if (!domainEvents.TryGetValue(typeof(UnGotACookieEvent), out List<Action<DomainEvent>> events))
+				return;
+			foreach (Action<DomainEvent> domainEv in events)
+				domainEv(ev);
 		}
 
 		public static void Reset()
 		{
 			domainEvents.Clear();
-			UngotACookie.Clear();
 		}
 	}
 
