@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using CookieClicker.Runtime.Model;
 using CookieClicker.Runtime.View;
 using NUnit.Framework;
 using UnityEngine;
