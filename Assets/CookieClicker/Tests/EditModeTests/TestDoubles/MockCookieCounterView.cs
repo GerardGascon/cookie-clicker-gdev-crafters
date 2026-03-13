@@ -4,11 +4,8 @@ namespace CookieClicker.Tests.EditModeTests.TestDoubles
 {
 	public class MockCookieCounterView
 	{
-		readonly Jar jar;
-
-		public MockCookieCounterView(Jar jar)
+		public MockCookieCounterView()
 		{
-			this.jar = jar;
 			DomainEvents.SubscribeToDomainEvents<GotACookieEvent>(ev => Refresh(ev.JarAmount));
 			DomainEvents.SubscribeToDomainEvents<UnGotACookieEvent>(ev => Refresh(ev.JarAmount));
 		}

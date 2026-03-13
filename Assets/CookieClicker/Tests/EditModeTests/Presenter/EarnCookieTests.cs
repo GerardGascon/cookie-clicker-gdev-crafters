@@ -29,7 +29,7 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		public void ViewDisplays1Cookie()
 		{
 			var doc = new Jar();
-			var doc2 = new MockCookieCounterView(doc);
+			var doc2 = new MockCookieCounterView();
 			var sut = new EarnCookie(doc);
 
 			sut.Execute();
@@ -41,7 +41,7 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		public void ViewDisplays2Cookies()
 		{
 			var doc = new Jar();
-			var doc2 = new MockCookieCounterView(doc);
+			var doc2 = new MockCookieCounterView();
 			var sut = new EarnCookie(doc);
 
 			sut.Execute();
