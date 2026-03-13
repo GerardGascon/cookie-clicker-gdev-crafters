@@ -11,7 +11,7 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		[Test]
 		public void PurchaseAutoclicker()
 		{
-			var doc1 = new DomainEvents();
+			var doc1 = new DomainEventBus();
 			var doc = new Jar(doc1);
 			var sut = new PurchaseAutoclicker(doc);
 
@@ -23,7 +23,7 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		[Test]
 		public void AutoclickerCantBePurchasedWithoutEnoughCookies()
 		{
-			var doc1 = new DomainEvents();
+			var doc1 = new DomainEventBus();
 			var doc = new Jar(doc1, 3);
 			var sut = new PurchaseAutoclicker(doc);
 
@@ -35,7 +35,7 @@ namespace CookieClicker.Tests.EditModeTests.Presenter
 		[Test]
 		public void AutoclickerCanBePurchasedWithEnoughCookies()
 		{
-			var doc1 = new DomainEvents();
+			var doc1 = new DomainEventBus();
 			var doc = new Jar(doc1, 3).WithCookies(3);
 			var sut = new PurchaseAutoclicker(doc);
 

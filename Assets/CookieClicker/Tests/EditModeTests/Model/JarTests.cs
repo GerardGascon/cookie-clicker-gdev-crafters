@@ -9,7 +9,7 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[Test]
 		public void JarIsEmptyByDefault()
 		{
-			var doc = new DomainEvents();
+			var doc = new DomainEventBus();
 			var jar = new Jar(doc);
 
 			Assert.That(jar.IsEmpty(), Is.True);
@@ -18,7 +18,7 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[Test]
 		public void EarnOneCookieJarIsNotEmpty()
 		{
-			var doc = new DomainEvents();
+			var doc = new DomainEventBus();
 			var jar = new Jar(doc);
 
 			jar.Add();
@@ -29,7 +29,7 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[Test]
 		public void EarnOneCookie()
 		{
-			var doc = new DomainEvents();
+			var doc = new DomainEventBus();
 			var jar = new Jar(doc);
 
 			jar.Add();
@@ -40,7 +40,7 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[Test]
 		public void EarnTwoCookies()
 		{
-			var doc =  new DomainEvents();
+			var doc =  new DomainEventBus();
 			var jar = new Jar(doc);
 
 			jar.Add();
@@ -52,7 +52,7 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[Test]
 		public void CookieIsAddedWhenOneSecondHasPassed()
 		{
-			var doc = new DomainEvents();
+			var doc = new DomainEventBus();
 			var jar = new Jar(doc);
 
 			jar.OneSecondHasPassed();
@@ -65,7 +65,7 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[TestCase(3.2f, 3)]
 		public void ThreeCookiesAreAddedWhenThreeSecondsHavePassed(float timePassed, int amountOfCookies)
 		{
-			var doc = new DomainEvents();
+			var doc = new DomainEventBus();
 			var jar = new Jar(doc).WithAutoclicker();
 
 			jar.SecondsHavePassed(timePassed);
@@ -77,7 +77,7 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[TestCase(1.6f, 3)]
 		public void CookiesAreAddedWhenTimePassesIn2Increments(float timeIncrement, int amountOfCookies)
 		{
-			var doc = new DomainEvents();
+			var doc = new DomainEventBus();
 			var jar = new Jar(doc).WithAutoclicker();
 
 			jar.SecondsHavePassed(timeIncrement);
@@ -89,7 +89,7 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[Test]
 		public void GivenJarWithCookies_WhenTimePasses_CookiesAreAdded()
 		{
-			var doc = new DomainEvents();
+			var doc = new DomainEventBus();
 			var jar = new Jar(doc).WithCookies(5).WithAutoclicker();
 
 			jar.SecondsHavePassed(1.2f);

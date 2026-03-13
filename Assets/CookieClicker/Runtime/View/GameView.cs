@@ -7,12 +7,12 @@ namespace CookieClicker.Runtime.View
 	{
 		Jar jar;
 
-		public void Initialize(Jar jar, DomainEvents domainEvents)
+		public void Initialize(Jar jar, DomainEventBus domainEventBus)
 		{
 			this.jar = jar;
 			Refresh(jar.Amount);
-			domainEvents.SubscribeToDomainEvents<GotACookieEvent>(ev => Refresh(ev.JarAmount));
-			domainEvents.SubscribeToDomainEvents<UnGotACookieEvent>(ev => Refresh(ev.JarAmount));
+			domainEventBus.SubscribeToDomainEvents<GotACookieEvent>(ev => Refresh(ev.JarAmount));
+			domainEventBus.SubscribeToDomainEvents<UnGotACookieEvent>(ev => Refresh(ev.JarAmount));
 		}
 
 		void Refresh(int jarAmount)

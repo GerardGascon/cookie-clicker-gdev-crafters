@@ -8,7 +8,7 @@ namespace CookieClicker.Runtime.View
 	{
 		void Awake()
 		{
-			var domainEvents = new DomainEvents();
+			var domainEvents = new DomainEventBus();
 
 			var gameView = FindAnyObjectByType<GameView>();
 			var clock = FindAnyObjectByType<UnityClock>();

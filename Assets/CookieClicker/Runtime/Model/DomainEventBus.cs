@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CookieClicker.Runtime.Model
 {
-	public class DomainEvents
+	public class DomainEventBus
 	{
 		Dictionary<Type, List<Action<DomainEvent>>> domainEvents = new();
 

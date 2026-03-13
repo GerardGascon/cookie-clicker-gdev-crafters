@@ -9,7 +9,7 @@ namespace CookieClicker.Tests.EditModeTests.Model
 		[Test]
 		public void PurchaseAutoclickerDecreasesCookiesAmountByPrice()
 		{
-			var doc = new DomainEvents();
+			var doc = new DomainEventBus();
 			var sut = new Jar(doc, 3).WithCookies(5);
 
 			sut.PurchaseAutoclicker();
